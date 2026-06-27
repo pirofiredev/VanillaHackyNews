@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- tailwindcss -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+
+    <!-- custom colors + fonts + predefined styles(@layer) -->
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+        @theme {
+            --color-transparent-orange: #2a1a0a;
+            --color-main-orange: #ff6600;
+            --color-darker-orange: #9a3e00;
+            --color-main-bg: #0f0f0f;
+            --color-surface: #161616;
+            --color-surface2: #1e1e1e;
+            --border: #2a2a2a;
+
+
+            --font-mono: "JetBrains Mono", sans-mono;
+            --font-display: "Inter", sans;
+        }
+
+        @layer container {
+            .containerWrap {
+                max-width: 90%;
+                display: flex;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @layer borders {
+            .normalBorder {
+                border: 1px solid #2a2a2a;
+                border-radius: 0.25rem;
+            }
+            .orangeBorder {
+                border: 1px solid #ff6600;
+                border-radius: 0.25rem;
+            }
+        }
+
+    </style>
+
+
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-(--color-main-bg) text-white font-(--font-display)">
+    <header class="py-5 flex items-center bg-(--color-surface) border-b-1 border-b-(--border) justify-center">
+
+        <div class="containerWrap">
+            <div class="left-wrap flex flex-row items-center">
+                <img src="logo.png" class="w-10 h-10">
+                <p class="ml-3 font-mono font-semibold">Hacky News</p>
+                <div class="ml-4 font-mono bg-(--color-transparent-orange) orangeBorder text-(--color-main-orange)">
+                    <div class="text-sm w-10 h-5 text-center">
+                        <p>beta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-wrap flex flex-row ml-auto gap-3">
+                <input type="button" value="☀️" class="cursor-pointer bg-(--color-surface2) p-1 normalBorder">
+                <input type="button" value="sign in" class="cursor-pointer bg-(--color-surface) p-1 px-2 normalBorder hover:bg-(--color-surface2) transition duration-200">
+            </div>
+        </div>
+
+    </header>
+
+
+    <section class="semiheader centeriseContent">
+
+        <div class="containerWrap items-center border-b-1 border-(--border)">
+            <p class="uppercase font-mono text-(--color-main-orange) my-5">latest stories</p>
+
+            <span id="refreshButton" class="flex items-center justify-center gap-1 w-25 h-10 ml-auto [&_p]:font-mono [&_p]:text-sm normalBorder select-none cursor-pointer hover:bg-(--color-surface) transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="refreshArrow" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="20" height="20" viewBox="0 0 16 16"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.245 7.995a.75.75 0 1 1 1.5 0a.75.75 0 0 1-1.5 0"></path><path d="M8 2a6 6 0 0 0-5.324 8.769l-.887.462a7 7 0 0 1 10.52-8.749l.652.51L9 4.774v-2.69A6 6 0 0 0 8 2m5.383 3.346a6 6 0 0 0-.393-.679l.831-.556q.255.38.458.792A7 7 0 0 1 3.606 13.45l-.703-.567L7.5 11.3v2.68q.248.02.5.02a6 6 0 0 0 5.383-8.654"></path></g></svg>
+                <p>refresh</p>
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <div class="flex justify-center max-w-9/10 mx-auto gap-5 mt-5">
+
+        <section id="posts" class="w-8/10">
+
+            <div id="loading-posts" class="flex flex-col gap-5">
+                <div class="loadingPost bg-(--color-surface) border-sm normalBorder p-5 flex">
+
+                    <div class="rating flex flex-col items-center">
+
+                        <svg class="cursor-pointer text-white hover:text-green-500 transition" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M5 13v-1h6V6h1v6h6v1h-6v6h-1v-6z"></path></svg>
+                        <p class="animate-pulse mt-1 mb-0.5 text-sm">???</p>
+                        <svg class="cursor-pointer text-white hover:text-red-500 transition" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style=" --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M5 13v-1h13v1z"></path></svg>
+                        
+                    </div>
+
+                    <div class="centerPostContainer flex flex-col ml-5 mr-auto">
+                        <p class="postNumberId animate-pulse font-mono text-sm text-zinc-500">??.</p>
+
+                        <span class="flex flex-row gap-2 items-center">
+                            <p class="postTitle animate-pulse text-lg">????????????</p>
+                            <p class="postSource animate-pulse text-sm text-zinc-500">(????????????)</p>
+                        </span>
+
+                        <span class="flex flex-row text-sm gap-1 text-zinc-400 mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
+                            <p class="postAuthor">by <b class="animate-pulse text-(--color-main-orange)">????</b> ·</p>
+                            <p class="postAuthor animate-pulse">???</p><p>pts ·</p>
+                            <p class="postAuthor animate-pulse">? </p> <p>d ago</p>
+                        </span>
+
+                        <span class="flex flex-row justify-between">
+                            <span class="flex flex-row gap-2 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4.586l-2.707 2.707a1 1 0 0 1-1.414 0L8.586 19H4a2 2 0 0 1-2-2zm18 0H4v11h5a1 1 0 0 1 .707.293L12 19.586l2.293-2.293A1 1 0 0 1 15 17h5zM6 9.5a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1"></path></svg>
+                                <p class="commentsQuantity text-sm text-zinc-400 animate-pulse">??</p>
+
+                                <p class="commentsQuantity text-sm text-zinc-400">last message in thread: <i class="animate-pulse">?</i> h ago</p>
+                            </span>
+                        </span>
+                    </div>
+
+                </div>
+
+                
+            </div>
+
+        </section>
+
+        <section id="right-menu" class="flex flex-col gap-5">
+
+            <div id="featured-tags" class="bg-(--color-surface) normalBorder p-4">
+                <span class="flex flex-row gap-1.5 border-b-1 border-b-(--border) pb-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15px" height="auto" viewBox="0 0 24 24"><g fill="currentColor"><path d="M2 3a1 1 0 0 1 1-1h8a1 1 0 0 1 .707.293l10 10a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-10-10A1 1 0 0 1 2 11zm2 1v6.586l9 9L19.586 13l-9-9z"></path><path d="M9 7.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"></path></g></svg>
+                    <p class="text-base">FEATURED TAGS</p>
+                </span>
+
+                <div class="tags-container flex flex-col gap-1 mt-2 text-sm">
+
+                        <span class="tag flex justify-between">
+                            <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">AI</p>
+                            <p class="text-zinc-500">x2</p>
+                        </span>
+
+                        <span class="tag flex justify-between">
+                            <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">Hardware</p>
+                            <p class="text-zinc-500">x4</p>
+                        </span>
+
+                        <span class="tag flex justify-between">
+                            <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">Coding</p>
+                            <p class="text-zinc-500">x3</p>
+                        </span>
+
+                </div>
+
+            </div>
+
+            <div id="featured-tags" class="bg-(--color-surface) normalBorder p-4">
+                <div id="aiFilterChoice" class="flex flex-col justify-center items-center gap-1.5 text-center">
+                    <p>Filter possibly AI-generated posts?</p>
+
+                    <span class="flex flex-row gap-3 text-sm">
+                        <input type="button" value="yes" class="font-mono hover:text-(--color-main-orange) transition cursor-pointer">
+                        <input type="button" value="no" class="font-mono cursor-not-allowed orangeBorder bg-(--color-transparent-orange) p-1">
+                    </span>
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+</body>
+</html>
