@@ -75,7 +75,7 @@
             </div>
 
             <div class="right-wrap flex flex-row ml-auto gap-3">
-                <input type="button" value="☀️" class="cursor-pointer bg-(--color-surface2) p-1 normalBorder">
+                <input type="button" value="☀️" class="cursor-pointer bg-(--color-surface) p-1 normalBorder">
                 <input type="button" value="sign in" class="cursor-pointer bg-(--color-surface) p-1 px-2 normalBorder hover:bg-(--color-surface2) transition duration-200">
             </div>
         </div>
@@ -88,10 +88,10 @@
         <div class="containerWrap items-center border-b-1 border-(--border)">
             <p class="uppercase font-mono text-(--color-main-orange) my-5">latest stories</p>
 
-            <span id="refreshButton" class="flex items-center justify-center gap-1 w-25 h-10 ml-auto [&_p]:font-mono [&_p]:text-sm normalBorder select-none cursor-pointer hover:bg-(--color-surface) transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="refreshArrow" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="20" height="20" viewBox="0 0 16 16"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.245 7.995a.75.75 0 1 1 1.5 0a.75.75 0 0 1-1.5 0"></path><path d="M8 2a6 6 0 0 0-5.324 8.769l-.887.462a7 7 0 0 1 10.52-8.749l.652.51L9 4.774v-2.69A6 6 0 0 0 8 2m5.383 3.346a6 6 0 0 0-.393-.679l.831-.556q.255.38.458.792A7 7 0 0 1 3.606 13.45l-.703-.567L7.5 11.3v2.68q.248.02.5.02a6 6 0 0 0 5.383-8.654"></path></g></svg>
+            <button id="refreshButton" class="flex items-center justify-center gap-1 w-25 h-10 ml-auto [&_p]:font-mono [&_p]:text-sm normalBorder select-none cursor-pointer hover:bg-(--color-surface) transition duration-200">
+                <svg class="mr-0.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="refreshArrow" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15" height="15" viewBox="0 0 16 16"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.245 7.995a.75.75 0 1 1 1.5 0a.75.75 0 0 1-1.5 0"></path><path d="M8 2a6 6 0 0 0-5.324 8.769l-.887.462a7 7 0 0 1 10.52-8.749l.652.51L9 4.774v-2.69A6 6 0 0 0 8 2m5.383 3.346a6 6 0 0 0-.393-.679l.831-.556q.255.38.458.792A7 7 0 0 1 3.606 13.45l-.703-.567L7.5 11.3v2.68q.248.02.5.02a6 6 0 0 0 5.383-8.654"></path></g></svg>
                 <p>refresh</p>
-            </span>
+            </button>
 
         </div>
 
@@ -100,7 +100,9 @@
 
     <div class="flex justify-center max-w-9/10 mx-auto gap-5 mt-5">
 
-        <section id="posts" class="w-8/10">
+        <section id="postsWrap" class="w-8/10">
+
+            <div id="posts" class="flex flex-col gap-5 hidden"></div>
 
             <div id="loading-posts" class="flex flex-col gap-5">
                 <div class="loadingPost bg-(--color-surface) border-sm normalBorder p-5 flex">
@@ -188,6 +190,8 @@
         </section>
 
     </div>
+
+    <section class="bg-red-600 w-100 h-100"></section>
 
 
 
