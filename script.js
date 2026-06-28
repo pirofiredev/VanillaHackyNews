@@ -128,25 +128,25 @@ async function getPosts() {
                     </div>
 
                     <div class="centerPostContainer flex flex-col ml-5 mr-auto">
-                        <p class="postNumberId font-mono text-sm text-zinc-500">${postCount}</p>
+                        <p class="postNumberId font-mono text-sm text-(--color-text-darkest)">${postCount}</p>
 
                         <span class="flex flex-row gap-2 items-center">
-                            <p class="postTitle text-lg">${post.title}</p>
-                            <a href="${post.url}" class="postSource text-sm text-zinc-500" target="_blank">(${post.url})</a>
+                            <p class="postTitle text-lg text-(--color-text-normal)">${post.title}</p>
+                            <a href="${post.url}" class="postSource text-sm text-(--color-text-darkest)" target="_blank">(${post.url})</a>
                         </span>
 
-                        <span class="flex flex-row text-sm gap-1 text-zinc-400 mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
+                        <span class="flex flex-row text-sm gap-1 text-(--color-text-darkest) mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
                             <p class="postAuthor">by <b class="text-(--color-main-orange)">${post.by}</b> ·</p>
-                            <p class="postAuthor">???</p><p>pts ·</p>
+                            <p class="postAuthor">???</p><p>reactions ·</p>
                             <p class="postAuthor">${postPublishedAgo}</p>
                         </span>
 
                         <span class="flex flex-row justify-between">
                             <span class="flex flex-row gap-2 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4.586l-2.707 2.707a1 1 0 0 1-1.414 0L8.586 19H4a2 2 0 0 1-2-2zm18 0H4v11h5a1 1 0 0 1 .707.293L12 19.586l2.293-2.293A1 1 0 0 1 15 17h5zM6 9.5a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1"></path></svg>
-                                <p class="commentsQuantity text-sm text-zinc-400">${commentsCount}</p>
+                                <p class="commentsQuantity text-sm text-(--color-text-normal)>${commentsCount}</p>
 
-                                <p class="commentsQuantity text-sm text-zinc-400">last message in thread: <i>?</i> h ago</p>
+                                <p class="commentsQuantity text-sm text-(--color-text-darkest)">last message in thread: <i>?</i> h ago</p>
                             </span>
                         </span>
                     </div>
@@ -194,6 +194,7 @@ async function getPosts() {
 
                 }
                 document.getElementById("posts").classList.remove("hidden");
+                document.getElementById("posts").classList.add("flex");
             }
 
             // put into mem before exiting
@@ -207,3 +208,39 @@ async function getPosts() {
         return false;
     }
 }
+
+
+// theme dark / white toggle part
+document.querySelector("#themeToggle").addEventListener("click",()=>{
+
+    const currentBtnEmoji = document.querySelector("#themeToggle").value;
+
+    if (currentBtnEmoji == "☀️") {
+        document.querySelector("#themeToggle").value = "🌙";
+
+        document.documentElement.style.setProperty('--color-bg-logo',           '#ffe8d6');
+        document.documentElement.style.setProperty('--color-text-normal',       '#000000');
+        
+        document.documentElement.style.setProperty('--color-main-bg',           '#f6f6ef');
+        document.documentElement.style.setProperty('--color-main-orange',       '#ff6600');
+        document.documentElement.style.setProperty('--color-darker-orange',     '#cc5200');
+        document.documentElement.style.setProperty('--color-transparent-orange','#ffe8d6');
+        document.documentElement.style.setProperty('--color-surface',           '#ffffff');
+        document.documentElement.style.setProperty('--color-surface2',          '#f0ede6');
+        document.documentElement.style.setProperty('--border',                  '#d8d5ce');
+    } 
+    else {
+        document.querySelector("#themeToggle").value = "☀️";
+
+        document.documentElement.style.setProperty('--color-bg-logo',           '#2e2012');
+        document.documentElement.style.setProperty('--color-text-normal',       '#ffffff');
+
+        document.documentElement.style.setProperty('--color-main-bg',           '#0f0f0f');
+        document.documentElement.style.setProperty('--color-main-orange',       '#ff6600');
+        document.documentElement.style.setProperty('--color-darker-orange',     '#9a3e00');
+        document.documentElement.style.setProperty('--color-transparent-orange','#2a1a0a');
+        document.documentElement.style.setProperty('--color-surface',           '#161616');
+        document.documentElement.style.setProperty('--color-surface2',          '#1e1e1e');
+        document.documentElement.style.setProperty('--border',                  '#2a2a2a');
+    }
+});

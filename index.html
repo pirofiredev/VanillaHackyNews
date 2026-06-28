@@ -17,14 +17,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 
 
-    <!-- custom colors + fonts + predefined styles(@layer) -->
+    <!-- custom colors + fonts + predefined styles(@layer) + animations -->
     <style type="text/tailwindcss">
         @import "tailwindcss";
         @theme {
-            --color-transparent-orange: #2a1a0a;
+            --color-bg-logo: #2e2012;
+
+            --color-text-normal: #ffffff;
+            --color-text-dimmed: #a1a1aa;
+            --color-text-darkest: #71717a;
+
+            --color-main-bg: #0f0f0f;
             --color-main-orange: #ff6600;
             --color-darker-orange: #9a3e00;
-            --color-main-bg: #0f0f0f;
+            --color-transparent-orange: #2a1a0a;
             --color-surface: #161616;
             --color-surface2: #1e1e1e;
             --border: #2a2a2a;
@@ -32,6 +38,13 @@
 
             --font-mono: "JetBrains Mono", sans-mono;
             --font-display: "Inter", sans;
+
+
+            --animate-blink: blink 2.5s step-end infinite;
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50%       { opacity: 0; }
+            }
         }
 
         @layer container {
@@ -61,17 +74,28 @@
             }
         }
 
+
+
     </style>
 
 
     <script src="script.js" defer></script>
 </head>
-<body class="bg-(--color-main-bg) text-white font-(--font-display)">
+<body class="bg-(--color-main-bg) text-(--color-text-normal) font-(--font-display)">
     <header class="py-5 flex items-center bg-(--color-surface) border-b-1 border-b-(--border) justify-center">
 
         <div class="containerWrap">
             <div class="left-wrap flex flex-row items-center">
-                <img src="logo.png" class="w-10 h-10">
+
+
+                <!-- <img src="logo.png" class="w-10 h-10"> boring-->
+
+                <div class="logo w-9 h-9 bg-(--color-bg-logo) rounded-lg flex items-end relative">
+                    <svg class="absolute top-[30%] left-[5%] text-(--color-main-orange)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="16" height="16" viewBox="0 0 1024 1024"><g transform="rotate(-90 512 512)"><path fill="currentColor" d="M104.7 338.8a64 64 0 0 1 90.5 0L512 655.6l316.8-316.8a64 64 0 0 1 90.5 90.4l-362 362.1a64 64 0 0 1-90.5 0l-362.1-362a64 64 0 0 1 0-90.5"></path></g></svg>
+                    <svg class="absolute bottom-[10%] left-[40%] text-(--color-main-orange) animate-blink" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="16" height="16" viewBox="0 0 24 24"><g transform="rotate(90 12 12)"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21V3"></path></g></svg>
+                </div>
+
+
                 <p class="ml-3 font-mono font-semibold">Hacky News</p>
                 <div class="ml-4 font-mono bg-(--color-transparent-orange) orangeBorder text-(--color-main-orange)">
                     <div class="text-sm w-10 h-5 text-center">
@@ -81,7 +105,7 @@
             </div>
 
             <div class="right-wrap flex flex-row ml-auto gap-3">
-                <input type="button" value="☀️" class="cursor-pointer bg-(--color-surface) p-1 normalBorder">
+                <input type="button" value="☀️" class="cursor-pointer bg-(--color-surface) p-1 normalBorder" id="themeToggle">
                 <input type="button" value="sign in" class="cursor-pointer bg-(--color-surface) p-1 px-2 normalBorder hover:bg-(--color-surface2) transition duration-200">
             </div>
         </div>
@@ -95,7 +119,7 @@
             <p class="uppercase font-mono text-(--color-main-orange) my-5">latest stories</p>
 
             <button id="refreshButton" class="flex items-center justify-center gap-1 w-25 h-10 ml-auto [&_p]:font-mono [&_p]:text-sm normalBorder select-none cursor-pointer hover:bg-(--color-surface) transition duration-200">
-                <svg class="mr-0.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="refreshArrow" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15" height="15" viewBox="0 0 16 16"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.245 7.995a.75.75 0 1 1 1.5 0a.75.75 0 0 1-1.5 0"></path><path d="M8 2a6 6 0 0 0-5.324 8.769l-.887.462a7 7 0 0 1 10.52-8.749l.652.51L9 4.774v-2.69A6 6 0 0 0 8 2m5.383 3.346a6 6 0 0 0-.393-.679l.831-.556q.255.38.458.792A7 7 0 0 1 3.606 13.45l-.703-.567L7.5 11.3v2.68q.248.02.5.02a6 6 0 0 0 5.383-8.654"></path></g></svg>
+                <svg class="mr-0.5 text-(--color-text-nomal)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="refreshArrow" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15" height="15" viewBox="0 0 16 16"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M7.245 7.995a.75.75 0 1 1 1.5 0a.75.75 0 0 1-1.5 0"></path><path d="M8 2a6 6 0 0 0-5.324 8.769l-.887.462a7 7 0 0 1 10.52-8.749l.652.51L9 4.774v-2.69A6 6 0 0 0 8 2m5.383 3.346a6 6 0 0 0-.393-.679l.831-.556q.255.38.458.792A7 7 0 0 1 3.606 13.45l-.703-.567L7.5 11.3v2.68q.248.02.5.02a6 6 0 0 0 5.383-8.654"></path></g></svg>
                 <p>refresh</p>
             </button>
 
@@ -122,25 +146,25 @@
                     </div>
 
                     <div class="centerPostContainer flex flex-col ml-5 mr-auto">
-                        <p class="postNumberId animate-pulse font-mono text-sm text-zinc-500">??.</p>
+                        <p class="postNumberId animate-pulse font-mono text-sm text-(--color-text-darkest)">??.</p>
 
                         <span class="flex flex-row gap-2 items-center">
                             <p class="postTitle animate-pulse text-lg">????????????</p>
-                            <p class="postSource animate-pulse text-sm text-zinc-500">(????????????)</p>
+                            <p class="postSource animate-pulse text-sm text-(--color-text-darkest)">(????????????)</p>
                         </span>
 
-                        <span class="flex flex-row text-sm gap-1 text-zinc-400 mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
+                        <span class="flex flex-row text-sm gap-1 text-(--color-text-dimmed) mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
                             <p class="postAuthor">by <b class="animate-pulse text-(--color-main-orange)">????</b> ·</p>
-                            <p class="postAuthor animate-pulse">???</p><p>pts ·</p>
+                            <p class="postAuthor animate-pulse">???</p><p>reactions ·</p>
                             <p class="postAuthor animate-pulse">? </p> <p>d ago</p>
                         </span>
 
                         <span class="flex flex-row justify-between">
                             <span class="flex flex-row gap-2 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4.586l-2.707 2.707a1 1 0 0 1-1.414 0L8.586 19H4a2 2 0 0 1-2-2zm18 0H4v11h5a1 1 0 0 1 .707.293L12 19.586l2.293-2.293A1 1 0 0 1 15 17h5zM6 9.5a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1"></path></svg>
-                                <p class="commentsQuantity text-sm text-zinc-400 animate-pulse">??</p>
+                                <p class="commentsQuantity text-sm text-(--color-text-dimmed) animate-pulse">??</p>
 
-                                <p class="commentsQuantity text-sm text-zinc-400">last message in thread: <i class="animate-pulse">?</i> h ago</p>
+                                <p class="commentsQuantity text-sm text-(--color-text-dimmed)">last message in thread: <i class="animate-pulse">?</i> h ago</p>
                             </span>
                         </span>
                     </div>
@@ -156,7 +180,7 @@
 
             <div id="featured-tags" class="bg-(--color-surface) normalBorder p-4">
                 <span class="flex flex-row gap-1.5 border-b-1 border-b-(--border) pb-2 items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15px" height="auto" viewBox="0 0 24 24"><g fill="currentColor"><path d="M2 3a1 1 0 0 1 1-1h8a1 1 0 0 1 .707.293l10 10a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-10-10A1 1 0 0 1 2 11zm2 1v6.586l9 9L19.586 13l-9-9z"></path><path d="M9 7.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"></path></g></svg>
+                    <svg class="text-(--color-normal-text)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="15px" height="auto" viewBox="0 0 24 24"><g fill="currentColor"><path d="M2 3a1 1 0 0 1 1-1h8a1 1 0 0 1 .707.293l10 10a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-10-10A1 1 0 0 1 2 11zm2 1v6.586l9 9L19.586 13l-9-9z"></path><path d="M9 7.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0"></path></g></svg>
                     <p class="text-base">FEATURED TAGS</p>
                 </span>
 
@@ -164,17 +188,17 @@
 
                         <span class="tag flex justify-between">
                             <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">AI</p>
-                            <p class="text-zinc-500">x2</p>
+                            <p class="text-(--color-text-darkest)">x2</p>
                         </span>
 
                         <span class="tag flex justify-between">
                             <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">Hardware</p>
-                            <p class="text-zinc-500">x4</p>
+                            <p class="text-(--color-text-darkest)">x4</p>
                         </span>
 
                         <span class="tag flex justify-between">
                             <p class="select-none hover:text-(--color-main-orange) transition cursor-pointer">Coding</p>
-                            <p class="text-zinc-500">x3</p>
+                            <p class="text-(--color-text-darkest)">x3</p>
                         </span>
 
                 </div>
