@@ -42,6 +42,12 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            .containerWrapNoWidth {
+                display: flex;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         @layer borders {
@@ -102,7 +108,7 @@
 
         <section id="postsWrap" class="w-8/10">
 
-            <div id="posts" class="flex flex-col gap-5 hidden"></div>
+            <div id="posts" class="flex-col gap-5 hidden"></div>
 
             <div id="loading-posts" class="flex flex-col gap-5">
                 <div class="loadingPost bg-(--color-surface) border-sm normalBorder p-5 flex">
@@ -191,9 +197,33 @@
 
     </div>
 
-    <section class="bg-red-600 w-100 h-100"></section>
+    <footer class="mt-10">
+        <div class="separator border-b border-(--border)"></div>
 
+        <div class="footer-contaner flex flex-row justify-between items-center containerWrapNoWidth max-w-8/10 p-5 font-mono">
 
+            <div class="left mr-auto flex flex-row items-center gap-3">
+                <a href="mailto:pirofiredev@gmail.com" class="text-(--color-main-orange) underline hover:text-white transition border-r-1 border-(--border) pr-3">email dev</a>
+
+                <a href="https://github.com/pirofiredev/HackyNews">
+                    <svg class="hover:text-(--color-main-orange) text-white transition cursor-pointer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="17" height="17" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="--darkreader-inline-stroke: currentColor;"><path d="M9.096 21.25v-3.146a3.33 3.33 0 0 1 .758-2.115c-3.005-.4-5.28-1.859-5.28-5.798c0-1.666 1.432-3.89 1.432-3.89c-.514-1.13-.5-3.084.06-3.551c0 0 1.95.175 3.847 1.75c1.838-.495 3.764-.554 5.661 0c1.897-1.575 3.848-1.75 3.848-1.75c.558.467.573 2.422.06 3.551c0 0 1.432 2.224 1.432 3.89c0 3.94-2.276 5.398-5.28 5.798a3.33 3.33 0 0 1 .757 2.115v3.146"></path><path d="M3.086 16.57c.163.554.463 1.066.878 1.496c.414.431.932.77 1.513.988a4.46 4.46 0 0 0 3.62-.216"></path></g></svg>
+                </a>
+            </div>
+
+            <div class="right flex flex-row gap-3">
+
+                <p>Hacker News</p>
+                <div class="font-mono bg-(--color-transparent-orange) orangeBorder text-(--color-main-orange)">
+                    <div class="text-sm w-10 h-5 text-center">
+                        <p>beta</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>

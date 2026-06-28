@@ -1,7 +1,7 @@
 // declaration range of loaded posts
 
 const loadFrom = 0;
-const loadTo = 20;
+const loadTo = 5;
 
 
 
@@ -37,6 +37,8 @@ else {
         });
 
         document.getElementById("posts").classList.remove("hidden");
+        document.getElementById("posts").classList.add("flex");
+
         document.getElementById("loading-posts").classList.add("hidden");
         document.getElementById("loading-posts").classList.remove("flex");
     }
@@ -130,7 +132,7 @@ async function getPosts() {
 
                         <span class="flex flex-row gap-2 items-center">
                             <p class="postTitle text-lg">${post.title}</p>
-                            <a href="${post.url}" class="postSource text-sm text-zinc-500">(${post.url})</a>
+                            <a href="${post.url}" class="postSource text-sm text-zinc-500" target="_blank">(${post.url})</a>
                         </span>
 
                         <span class="flex flex-row text-sm gap-1 text-zinc-400 mb-1.5">     <!-- done trick with many nested <p>'s to make fading effect only on ? chars -->
