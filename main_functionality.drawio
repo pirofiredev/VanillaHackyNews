@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="CnNIWs8AhOXX-_WrQt4Y">
-    <mxGraphModel dx="4064" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="5542" dy="1964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -61,7 +61,7 @@
         </mxCell>
         <mxCell id="d-nR62PcG2wAcGNH4V17-17" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="d-nR62PcG2wAcGNH4V17-5">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-1190" y="1960" as="sourcePoint" />
+            <mxPoint x="-1210" y="1980" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="sJ-_h4MhGYfRMdKtQEK6-44" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="insert new row, in which tag(s), isAI, postID" vertex="1">
@@ -292,6 +292,9 @@
             <mxPoint x="40" y="1480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="d-nR62PcG2wAcGNH4V17-37" edge="1" parent="1" source="sJ-_h4MhGYfRMdKtQEK6-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="d-nR62PcG2wAcGNH4V17-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="sJ-_h4MhGYfRMdKtQEK6-125" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="supabase" vertex="1">
           <mxGeometry height="60" width="120" x="-285" y="1340" as="geometry" />
         </mxCell>
@@ -319,10 +322,10 @@
           <mxGeometry height="60" width="155" x="-302.5" y="1490" as="geometry" />
         </mxCell>
         <mxCell id="d-nR62PcG2wAcGNH4V17-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;" value="API" vertex="1">
-          <mxGeometry height="180" width="50" x="-970" y="1870" as="geometry" />
+          <mxGeometry height="180" width="50" x="-990" y="1890" as="geometry" />
         </mxCell>
         <mxCell id="d-nR62PcG2wAcGNH4V17-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="All data public" vertex="1">
-          <mxGeometry height="30" width="110" x="-1130" y="1925" as="geometry" />
+          <mxGeometry height="30" width="110" x="-1150" y="1945" as="geometry" />
         </mxCell>
         <mxCell id="d-nR62PcG2wAcGNH4V17-26" edge="1" parent="1" source="d-nR62PcG2wAcGNH4V17-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#33FF33);" target="d-nR62PcG2wAcGNH4V17-29">
           <mxGeometry relative="1" as="geometry">
@@ -354,6 +357,12 @@
         </mxCell>
         <mxCell id="d-nR62PcG2wAcGNH4V17-34" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" value="was topics tag selected?" vertex="1">
           <mxGeometry height="140" width="141.25" x="630" y="1710" as="geometry" />
+        </mxCell>
+        <mxCell id="d-nR62PcG2wAcGNH4V17-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="TAGS AND Q-TY" vertex="1">
+          <mxGeometry height="60" width="155" x="-570" y="1490" as="geometry" />
+        </mxCell>
+        <mxCell id="d-nR62PcG2wAcGNH4V17-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=128;" value="SOON" vertex="1">
+          <mxGeometry height="190" width="320" x="-1590" y="1730" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
