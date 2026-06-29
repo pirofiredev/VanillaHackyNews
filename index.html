@@ -205,14 +205,16 @@
 
             </div>
 
-            <div id="featured-tags" class="bg-(--color-surface) normalBorder p-4">
-                <div id="aiFilterChoice" class="flex flex-col justify-center items-center gap-1.5 text-center">
+            <div class="bg-(--color-surface) normalBorder p-4">
+                <div id="aiFilterChoice" class="flex flex-col justify-center items-center gap-1 text-center">
                     <p>Filter possibly AI-generated posts?</p>
+                    <p class="text-(--color-text-darkest) text-[0.8em] italic">can be inaccurate</p>
 
-                    <span class="flex flex-row gap-3 text-sm">
+                    <span class="flex flex-row gap-3 text-sm mt-1">
                         <input type="button" value="yes" class="font-mono hover:text-(--color-main-orange) transition cursor-pointer">
                         <input type="button" value="no" class="font-mono cursor-not-allowed orangeBorder bg-(--color-transparent-orange) p-1">
                     </span>
+                    
 
                 </div>
             </div>
@@ -226,23 +228,32 @@
 
         <div class="footer-contaner flex flex-row justify-between items-center containerWrapNoWidth max-w-8/10 p-5 font-mono">
 
-            <div class="left mr-auto flex flex-row items-center gap-3">
-                <a href="mailto:pirofiredev@gmail.com" class="text-(--color-main-orange) underline hover:text-white transition border-r-1 border-(--border) pr-3">email dev</a>
+            <div class="left flex flex-row items-center gap-3">
+                <a href="mailto:pirofiredev@gmail.com" class="text-(--color-main-orange) underline hover:text-white transition border-r-1 border-r-(--border) pr-3">email dev</a>
 
                 <a href="https://github.com/pirofiredev/HackyNews">
-                    <svg class="hover:text-(--color-main-orange) text-white transition cursor-pointer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="17" height="17" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="--darkreader-inline-stroke: currentColor;"><path d="M9.096 21.25v-3.146a3.33 3.33 0 0 1 .758-2.115c-3.005-.4-5.28-1.859-5.28-5.798c0-1.666 1.432-3.89 1.432-3.89c-.514-1.13-.5-3.084.06-3.551c0 0 1.95.175 3.847 1.75c1.838-.495 3.764-.554 5.661 0c1.897-1.575 3.848-1.75 3.848-1.75c.558.467.573 2.422.06 3.551c0 0 1.432 2.224 1.432 3.89c0 3.94-2.276 5.398-5.28 5.798a3.33 3.33 0 0 1 .757 2.115v3.146"></path><path d="M3.086 16.57c.163.554.463 1.066.878 1.496c.414.431.932.77 1.513.988a4.46 4.46 0 0 0 3.62-.216"></path></g></svg>
+                    <svg class="hover:text-(--color-main-orange) text-(--color-text-normal) transition cursor-pointer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="--darkreader-inline-color: var(--darkreader-text-ffffff, #e8e6e3);" width="17" height="17" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="--darkreader-inline-stroke: currentColor;"><path d="M9.096 21.25v-3.146a3.33 3.33 0 0 1 .758-2.115c-3.005-.4-5.28-1.859-5.28-5.798c0-1.666 1.432-3.89 1.432-3.89c-.514-1.13-.5-3.084.06-3.551c0 0 1.95.175 3.847 1.75c1.838-.495 3.764-.554 5.661 0c1.897-1.575 3.848-1.75 3.848-1.75c.558.467.573 2.422.06 3.551c0 0 1.432 2.224 1.432 3.89c0 3.94-2.276 5.398-5.28 5.798a3.33 3.33 0 0 1 .757 2.115v3.146"></path><path d="M3.086 16.57c.163.554.463 1.066.878 1.496c.414.431.932.77 1.513.988a4.46 4.46 0 0 0 3.62-.216"></path></g></svg>
                 </a>
+            </div>
+            
+            <div class="center mr-auto ml-auto">
+                <nav class="flex flex-row items-center gap-3" id="navPostsQuantity">
+<!--                    <p class="text-(&#45;&#45;color-main-orange)">1</p>-->
+<!--                    <p>2</p>-->
+<!--                    <p>3</p>-->
+<!--                    <p>4</p>-->
+<!--                    <p>5</p>-->
+                </nav>
             </div>
 
             <div class="right flex flex-row gap-3">
 
                 <p>Hacker News</p>
-                <div class="font-mono bg-(--color-transparent-orange) orangeBorder text-(--color-main-orange)">
-                    <div class="text-sm w-10 h-5 text-center">
-                        <p>beta</p>
-                    </div>
-                </div>
-
+<!--                <div class="font-mono bg-(&#45;&#45;color-transparent-orange) orangeBorder text-(&#45;&#45;color-main-orange)">-->
+<!--                    <div class="text-sm w-10 h-5 text-center">-->
+<!--                        <p>beta</p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
         </div>
