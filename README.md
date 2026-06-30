@@ -8,4 +8,4 @@
 
 ---
 
-#### The new version is here: https://github.com/pirofiredev/HackyNews
+#### The new version is here: https://github.com/pirofiredev/amberglow
